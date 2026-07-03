@@ -1,0 +1,26 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Dependencies
+frontend/node_modules/
+
+# Production builds
+frontend/dist/
+frontend/dist-ssr/
+
+# IDEs and local files
+.vs/
+.vscode/
+.idea/
+frontend/.vs/
+frontend/.vscode/*
+!frontend/.vscode/extensions.json
+frontend/.idea/
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
