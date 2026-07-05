@@ -106,6 +106,7 @@ export default function Footer({
               alt="Atom Tesisat Logo" 
               width="28"
               height="28"
+              loading="lazy"
               className="w-7 h-7 rounded-md object-cover border border-slate-800"
             />
             <span className="font-bold">Atom Tesisat</span>
