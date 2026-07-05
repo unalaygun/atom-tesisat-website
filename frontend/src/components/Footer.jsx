@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Phone, Mail, MapPin, Flame, X } from 'lucide-react';
 
 export default function Footer({
@@ -192,114 +192,320 @@ export default function Footer({
       )}
 
       {/* Cookie Policy Modal */}
-      {showCookiePolicyModal && (
-        <div className="fixed inset-0 z-50 bg-slate-950/60 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-slate-900 border border-slate-800 text-slate-100 w-full max-w-2xl rounded-3xl p-6 sm:p-8 shadow-2xl relative animate-in zoom-in-95 duration-200 text-left">
-            <button 
-              onClick={() => setShowCookiePolicyModal(false)}
-              aria-label={lang === 'tr' ? 'Kapat' : 'Close'}
-              className="absolute top-4 right-4 text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800 focus:outline-none cursor-pointer"
-            >
-              <X className="w-6 h-6" />
-            </button>
-            
-            <div className="space-y-6 max-h-[70vh] overflow-y-auto pr-2">
-              <div className="flex items-center space-x-2">
-                <span className="text-2xl">📋</span>
-                <h3 className="text-lg sm:text-xl font-extrabold text-white">
-                  {lang === 'tr' ? 'Çerez Politikası & Aydınlatma Metni' : 'Cookie Policy & Clarification'}
-                </h3>
-              </div>
-              
-              <div className="space-y-4 text-xs sm:text-sm text-slate-300 leading-relaxed">
-                {lang === 'tr' ? (
-                  <>
-                    <p>
-                      <strong>Atom Tesisat</strong> olarak web sitemizi ziyaret eden kullanıcılarımızın gizliliğini korumak ve yasal mevzuatlara uyum sağlamak birinci önceliğimizdir. 6698 Sayılı Kişisel Verilerin Korunması Kanunu (KVKK) kapsamında çerezlerin kullanımı hakkında sizleri bilgilendirmek isteriz.
-                    </p>
-                    <div className="space-y-2">
-                      <h4 className="font-bold text-white text-sm">1. Çerez (Cookie) Nedir?</h4>
-                      <p>
-                        Çerezler, ziyaret ettiğiniz internet siteleri tarafından tarayıcınız (browser) aracılığıyla cihazınıza veya ağ sunucusuna depolanan küçük metin dosyalarıdır.
-                      </p>
-                    </div>
-                    <div className="space-y-2">
-                      <h4 className="font-bold text-white text-sm">2. Çerezleri Neden Kullanıyoruz?</h4>
-                      <p>
-                        Web sitemizde çerezler aşağıdaki amaçlarla kullanılmaktadır:
-                      </p>
-                      <ul className="list-disc pl-5 space-y-1">
-                        <li>Sitenin teknik olarak düzgün çalışmasını sağlamak (Zorunlu çerezler).</li>
-                        <li>Sizin için oluşturduğumuz online randevu formunun kararlı çalışmasını sağlamak.</li>
-                        <li>Kullanıcı tercihlerini (örneğin bu çerez bildirimini kabul ettiğinizi) hatırlamak.</li>
-                        <li>Ziyaretçi sayılarını analiz ederek site performansını optimize etmek.</li>
-                      </ul>
-                    </div>
-                    <div className="space-y-2">
-                      <h4 className="font-bold text-white text-sm">3. Kullanılan Çerezlerin Yönetimi</h4>
-                      <p>
-                        Web tarayıcınızın ayarlarını değiştirerek çerez kullanım tercihinizi kişiselleştirebilir, kayıtlı çerezleri silebilir veya çerez kullanımını tamamen engelleyebilirsiniz. Lütfen unutmayın ki zorunlu çerezlerin engellenmesi durumunda, sitemizdeki bazı işlevler (örneğin randevu kaydı oluşturma) kısmen veya tamamen çalışmayabilir.
-                      </p>
-                    </div>
-                    <div className="space-y-2">
-                      <h4 className="font-bold text-white text-sm">4. KVKK Kapsamındaki Haklarınız</h4>
-                      <p>
-                        KVKK'nın 11. maddesi uyarınca, Atom Tesisat'a başvurarak kişisel verilerinizin işlenip işlenmediğini öğrenme, işlenmişse bilgi talep etme, işlenme amacına uygun kullanılıp kullanılmadığını öğrenme ve verilerinizin silinmesini talep etme haklarına sahipsiniz. Sorularınız için <strong>atomtesisat28@gmail.com</strong> adresinden bize her zaman ulaşabilirsiniz.
-                      </p>
-                    </div>
-                  </>
-                ) : (
-                  <>
-                    <p>
-                      As <strong>Atom Tesisat</strong>, protecting the privacy of our users visiting our website and ensuring compliance with legal regulations is our top priority. We would like to inform you about the use of cookies within the scope of Personal Data Protection Law No. 6698 (KVKK).
-                    </p>
-                    <div className="space-y-2">
-                      <h4 className="font-bold text-white text-sm">1. What is a Cookie?</h4>
-                      <p>
-                        Cookies are small text files stored on your device or network server through your browser by the websites you visit.
-                      </p>
-                    </div>
-                    <div className="space-y-2">
-                      <h4 className="font-bold text-white text-sm">2. Why Do We Use Cookies?</h4>
-                      <p>
-                        Cookies are used on our website for the following purposes:
-                      </p>
-                      <ul className="list-disc pl-5 space-y-1">
-                        <li>Ensuring the site runs properly (Mandatory cookies).</li>
-                        <li>Ensuring stable operation of our online appointment booking form.</li>
-                        <li>Remembering user preferences (e.g., that you accepted this cookie notice).</li>
-                        <li>Optimizing site performance by analyzing visitor counts.</li>
-                      </ul>
-                    </div>
-                    <div className="space-y-2">
-                      <h4 className="font-bold text-white text-sm">3. Managing Used Cookies</h4>
-                      <p>
-                        You can personalize your cookie preferences, delete registered cookies, or completely block cookie usage by changing your browser settings. Please note that if mandatory cookies are blocked, some functions on our site (e.g., booking form) may not work properly.
-                      </p>
-                    </div>
-                    <div className="space-y-2">
-                      <h4 className="font-bold text-white text-sm">4. Your Rights Under KVKK</h4>
-                      <p>
-                        In accordance with Article 11 of the KVKK, by applying to Atom Tesisat, you have the right to learn whether your personal data is processed, request information if processed, learn the purpose of processing, and request the deletion of your data. For any questions, you can contact us at <strong>atomtesisat28@gmail.com</strong>.
-                      </p>
-                    </div>
-                  </>
-                )}
-              </div>
-
-              <div className="pt-4 border-t border-slate-800 flex justify-end">
-                <button 
-                  onClick={() => setShowCookiePolicyModal(false)}
-                  className="px-6 py-2.5 bg-orange-500 hover:bg-orange-600 text-white text-sm font-bold rounded-xl shadow-md transition-colors cursor-pointer"
-                >
-                  {lang === 'tr' ? 'Okudum, Kapat' : 'Read, Close'}
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+      {showCookiePolicyModal && <PolicyModal lang={lang} setShowCookiePolicyModal={setShowCookiePolicyModal} />}
 
     </footer>
+  );
+}
+
+// Sub-component for structured policy documents with tabs
+function PolicyModal({ lang, setShowCookiePolicyModal }) {
+  const [activeTab, setActiveTab] = useState('kvkk');
+
+  const tabs = [
+    { id: 'kvkk', tr: 'KVKK Aydınlatma', en: 'KVKK Clarification' },
+    { id: 'privacy', tr: 'Gizlilik Politikası', en: 'Privacy Policy' },
+    { id: 'cookies', tr: 'Çerez Politikası', en: 'Cookie Policy' },
+    { id: 'terms', tr: 'Kullanım Koşulları', en: 'Terms of Use' }
+  ];
+
+  return (
+    <div className="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4">
+      <div className="bg-slate-900 border border-slate-800 text-slate-100 w-full max-w-3xl rounded-3xl p-6 sm:p-8 shadow-2xl relative animate-in zoom-in-95 duration-200 text-left flex flex-col max-h-[85vh]">
+        <button 
+          onClick={() => setShowCookiePolicyModal(false)}
+          aria-label={lang === 'tr' ? 'Kapat' : 'Close'}
+          className="absolute top-4 right-4 text-slate-400 hover:text-white p-1.5 rounded-xl hover:bg-slate-800 focus:outline-none cursor-pointer z-10"
+        >
+          <X className="w-6 h-6" />
+        </button>
+        
+        <div className="flex items-center space-x-2.5 mb-6">
+          <span className="text-2xl">📋</span>
+          <h3 className="text-lg sm:text-xl font-extrabold text-white">
+            {lang === 'tr' ? 'Yasal Metinler ve Politikalar' : 'Legal Policies & KVKK'}
+          </h3>
+        </div>
+
+        {/* Tab Navigation */}
+        <div className="flex border-b border-slate-800 overflow-x-auto scrollbar-none mb-6">
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`px-4 py-2.5 font-bold text-xs sm:text-sm whitespace-nowrap border-b-2 transition-all cursor-pointer focus:outline-none ${
+                activeTab === tab.id
+                  ? 'border-orange-500 text-orange-500'
+                  : 'border-transparent text-slate-400 hover:text-slate-200'
+              }`}
+            >
+              {lang === 'tr' ? tab.tr : tab.en}
+            </button>
+          ))}
+        </div>
+
+        {/* Tab Content - Scrollable container */}
+        <div className="flex-grow overflow-y-auto pr-2 space-y-5 text-slate-300 text-xs sm:text-sm leading-relaxed scrollbar-thin">
+          
+          {/* KVKK Content */}
+          {activeTab === 'kvkk' && (
+            lang === 'tr' ? (
+              <div className="space-y-4">
+                <h4 className="font-extrabold text-white text-base">6698 Sayılı KVKK Kapsamında Aydınlatma Metni</h4>
+                <p>
+                  <strong>Atom Tesisat</strong> ("Veri Sorumlusu") olarak, web sitemizi ziyaret eden kullanıcılarımızın ve hizmet alıcılarımızın kişisel verilerinin korunmasına büyük önem veriyoruz. Bu metin, 6698 Sayılı Kişisel Verilerin Korunması Kanunu'nun (KVKK) 10. maddesi uyarınca aydınlatma yükümlülüğümüzün yerine getirilmesi amacıyla hazırlanmıştır.
+                </p>
+                <div className="space-y-2">
+                  <h5 className="font-bold text-white">1. İşlenen Kişisel Verileriniz</h5>
+                  <p>Web sitemizdeki online randevu formu aracılığıyla sadece şu verileriniz işlenmektedir:</p>
+                  <ul className="list-disc pl-5">
+                    <li>Kimlik Bilgisi: Adınız ve Soyadınız.</li>
+                    <li>İletişim Bilgisi: Telefon Numaranız ve Açık Adresiniz.</li>
+                    <li>Talep Bilgisi: Tercih ettiğiniz tesisat hizmeti, tarih ve saat.</li>
+                  </ul>
+                </div>
+                <div className="space-y-2">
+                  <h5 className="font-bold text-white">2. Kişisel Veri İşleme Amaçları ve Hukuki Sebepleri</h5>
+                  <p>Kişisel verileriniz, KVKK'nın 5. maddesi kapsamında şu hukuki sebeplere dayanılarak işlenmektedir:</p>
+                  <ul className="list-disc pl-5">
+                    <li>"Bir sözleşmenin kurulması veya ifasıyla doğrudan doğruya ilgili olması kaydıyla, sözleşmenin taraflarına ait kişisel verilerin işlenmesinin gerekli olması" hukuki sebebine dayanarak; sıhhi tesisat tamirat, su kaçağı tespiti, petek temizliği ve gider açma hizmetlerimize yönelik randevu taleplerinizin alınması, teyit edilmesi ve adresinize mobil servis yönlendirilmesi amacıyla.</li>
+                  </ul>
+                </div>
+                <div className="space-y-2">
+                  <h5 className="font-bold text-white">3. Kişisel Verilerin Aktarılması ve Yurtdışı Aktarım</h5>
+                  <p>
+                    Web sitemizde yer alan randevu formu, kişisel verilerinizi kendi veritabanımızda veya sunucularımızda <strong>saklamamaktadır</strong>. Randevuyu onayladığınızda, form verileri doğrudan tarayıcınız üzerinden WhatsApp API aracılığıyla WhatsApp (Meta Platforms, Inc.) uygulamasına iletilmektedir. 
+                  </p>
+                  <p className="border-l-2 border-orange-500 pl-3 text-slate-400 italic">
+                    Önemli Not: WhatsApp sunucularının yurtdışında bulunması nedeniyle, randevu formunu doldurup "WhatsApp ile Gönder" butonuna bastığınızda, kişisel verileriniz teknik olarak yurtdışına aktarılmış sayılmaktadır. Bu işlem, randevu alma talebinizin ve iletişim tercihinizin bir sonucu olarak sizin açık yönlendirmenizle gerçekleşmektedir.
+                  </p>
+                </div>
+                <div className="space-y-2">
+                  <h5 className="font-bold text-white">4. KVKK Madde 11 Kapsamındaki Haklarınız</h5>
+                  <p>
+                    Kanun'un 11. maddesi uyarınca; kişisel verilerinizin işlenip işlenmediğini öğrenme, işlenmişse bilgi talep etme, işlenme amacına uygun kullanılıp kullanılmadığını öğrenme, eksik veya yanlış işlenmişse düzeltilmesini isteme ve verilerinizin silinmesini talep etme haklarına sahipsiniz. Haklarınızı kullanmak için <strong>atomtesisat28@gmail.com</strong> adresine e-posta yoluyla başvurabilirsiniz.
+                  </p>
+                </div>
+              </div>
+            ) : (
+              <div className="space-y-4">
+                <h4 className="font-extrabold text-white text-base">Clarification Text Under Personal Data Protection Law (KVKK)</h4>
+                <p>
+                  As <strong>Atom Tesisat</strong> ("Data Controller"), we pay ultimate attention to the protection of our website visitors' personal data. This text is prepared in accordance with Article 10 of the Turkish Personal Data Protection Law No. 6698 (KVKK) to fulfill our obligation to inform you.
+                </p>
+                <div className="space-y-2">
+                  <h5 className="font-bold text-white">1. Processed Personal Data</h5>
+                  <p>Only the following data is processed through the online appointment booking form on our website:</p>
+                  <ul className="list-disc pl-5">
+                    <li>Identity: Full Name.</li>
+                    <li>Contact: Phone Number and Open Address.</li>
+                    <li>Request: Preferred service type, date, and time.</li>
+                  </ul>
+                </div>
+                <div className="space-y-2">
+                  <h5 className="font-bold text-white">2. Processing Purposes and Legal Grounds</h5>
+                  <p>Your personal data is processed under the legal grounds of Article 5 of KVKK:</p>
+                  <ul className="list-disc pl-5">
+                    <li>"Necessity of processing personal data of contract parties, provided that it is directly related to the establishment or performance of a contract"; to receive your appointment requests, confirm service details, and dispatch our mobile service team to your address.</li>
+                  </ul>
+                </div>
+                <div className="space-y-2">
+                  <h5 className="font-bold text-white">3. Data Transfers and Cross-Border Sharing</h5>
+                  <p>
+                    Our appointment form <strong>does not store</strong> your personal data on our own database or servers. Once you approve, the form data is sent directly from your browser to WhatsApp (Meta Platforms, Inc.) via the WhatsApp API.
+                  </p>
+                  <p className="border-l-2 border-orange-500 pl-3 text-slate-400 italic">
+                    Important Note: Since WhatsApp servers are located abroad, when you submit the form, your data is technically transferred abroad. This transfer is initiated directly by your own request and action to request services through WhatsApp.
+                  </p>
+                </div>
+                <div className="space-y-2">
+                  <h5 className="font-bold text-white">4. Your Rights Under Article 11 of KVKK</h5>
+                  <p>
+                    You have the right to learn whether your data is processed, request information, check if it's used for intended purposes, request correction of incomplete data, or request deletion under Article 11. You can exercise these rights by emailing us at <strong>atomtesisat28@gmail.com</strong>.
+                  </p>
+                </div>
+              </div>
+            )
+          )}
+
+          {/* Privacy Policy Content */}
+          {activeTab === 'privacy' && (
+            lang === 'tr' ? (
+              <div className="space-y-4">
+                <h4 className="font-extrabold text-white text-base">Gizlilik Politikası</h4>
+                <p>
+                  Bu Gizlilik Politikası, <strong>https://www.atom-tesisat.com</strong> adresini ziyaret eden kullanıcılarımızın gizlilik haklarını korumak amacıyla hazırlanmıştır.
+                </p>
+                <div className="space-y-2">
+                  <h5 className="font-bold text-white">1. Veri Güvenliği</h5>
+                  <p>
+                    Web sitemiz ile tarayıcınız arasındaki veri trafiği, SSL (Secure Sockets Layer) sertifikası ile şifrelenerek güvence altına alınmaktadır. Randevu formunda girdiğiniz hiçbir bilgi üçüncü taraflarca okunamaz ve sitemizin kendi veritabanlarında saklanmaz.
+                  </p>
+                </div>
+                <div className="space-y-2">
+                  <h5 className="font-bold text-white">2. Üçüncü Taraf Bağlantılar ve Servisler</h5>
+                  <p>
+                    Web sitemizde kullanıcı deneyimini artırmak ve adresimizi kolay bulabilmeniz amacıyla harici servisler (Google Maps, Instagram vb.) kullanılmaktadır. Bu servislerin kendi gizlilik politikaları geçerli olup, Atom Tesisat harici servislerin veri işleme faaliyetlerinden sorumlu tutulamaz.
+                  </p>
+                </div>
+                <div className="space-y-2">
+                  <h5 className="font-bold text-white">3. Güncellemeler</h5>
+                  <p>
+                    Bu gizlilik politikası, mevzuat değişikliklerine ve hizmet süreçlerimize bağlı olarak zaman zaman güncellenebilir. Sitemizi kullanarak bu gizlilik politikasını kabul etmiş sayılırsınız.
+                  </p>
+                </div>
+              </div>
+            ) : (
+              <div className="space-y-4">
+                <h4 className="font-extrabold text-white text-base">Privacy Policy</h4>
+                <p>
+                  This Privacy Policy is prepared to protect the privacy rights of users visiting <strong>https://www.atom-tesisat.com</strong>.
+                </p>
+                <div className="space-y-2">
+                  <h5 className="font-bold text-white">1. Data Security</h5>
+                  <p>
+                    Data traffic between our website and your browser is secured using SSL (Secure Sockets Layer) encryption. No information entered in the appointment form is stored in our database or readable by unauthorized third parties.
+                  </p>
+                </div>
+                <div className="space-y-2">
+                  <h5 className="font-bold text-white">2. Third-Party Links & Services</h5>
+                  <p>
+                    External services like Google Maps and Instagram are integrated to improve user experience. These services operate under their own privacy policies, and Atom Tesisat cannot be held liable for their data processing activities.
+                  </p>
+                </div>
+                <div className="space-y-2">
+                  <h5 className="font-bold text-white">3. Updates</h5>
+                  <p>
+                    This policy may be updated from time to time to comply with changes in legislation or our service procedures. By using our website, you agree to this privacy policy.
+                  </p>
+                </div>
+              </div>
+            )
+          )}
+
+          {/* Cookie Policy Content */}
+          {activeTab === 'cookies' && (
+            lang === 'tr' ? (
+              <div className="space-y-4">
+                <h4 className="font-extrabold text-white text-base">Çerez Politikası</h4>
+                <p>
+                  <strong>Atom Tesisat</strong> olarak, web sitemizin düzgün çalışması, performansının ölçülmesi ve kullanıcı deneyiminin iyileştirilmesi amacıyla çerezleri (cookies) kullanıyoruz.
+                </p>
+                <div className="space-y-2">
+                  <h5 className="font-bold text-white">1. Çerez Nedir?</h5>
+                  <p>
+                    Çerezler, ziyaret ettiğiniz web siteleri tarafından tarayıcınız vasıtasıyla cihazınıza yerleştirilen küçük metin dosyalarıdır.
+                  </p>
+                </div>
+                <div className="space-y-2">
+                  <h5 className="font-bold text-white">2. Kullandığımız Çerez Türleri</h5>
+                  <ul className="list-disc pl-5 space-y-1">
+                    <li><strong>Zorunlu Çerezler:</strong> Web sitesinin temel fonksiyonlarının çalışması (örn. dil seçiminizin hatırlanması, çerez onayınızın kaydedilmesi) için zorunlu olan teknik çerezlerdir.</li>
+                    <li><strong>Performans ve Analiz Çerezleri:</strong> Sitenin ziyaretçi sayıları ve trafik akışını isimsiz olarak analiz ederek sitemizi geliştirmemize yardımcı olan çerezlerdir.</li>
+                  </ul>
+                </div>
+                <div className="space-y-2">
+                  <h5 className="font-bold text-white">3. Çerezlerin Yönetimi</h5>
+                  <p>
+                    Çerezlerin kullanılmasını istemiyorsanız, tarayıcınızın ayarlarından çerez kullanımını engelleyebilir, sınırlandırabilir ya da kaydedilmiş çerezleri temizleyebilirsiniz. Lütfen zorunlu çerezler engellendiğinde web sitemizin bazı fonksiyonlarının tam çalışmayabileceğini unutmayınız.
+                  </p>
+                </div>
+              </div>
+            ) : (
+              <div className="space-y-4">
+                <h4 className="font-extrabold text-white text-base">Cookie Policy</h4>
+                <p>
+                  As <strong>Atom Tesisat</strong>, we use cookies to ensure our website functions correctly, measure performance, and improve your user experience.
+                </p>
+                <div className="space-y-2">
+                  <h5 className="font-bold text-white">1. What is a Cookie?</h5>
+                  <p>
+                    Cookies are small text files placed on your device by websites you visit through your browser.
+                  </p>
+                </div>
+                <div className="space-y-2">
+                  <h5 className="font-bold text-white">2. Cookie Types We Use</h5>
+                  <ul className="list-disc pl-5 space-y-1">
+                    <li><strong>Necessary Cookies:</strong> Technical cookies required for basic website functions (e.g., remembering language choice, storing cookie consent).</li>
+                    <li><strong>Performance & Analytics Cookies:</strong> Cookies that anonymously analyze visitor metrics to help us optimize the website.</li>
+                  </ul>
+                </div>
+                <div className="space-y-2">
+                  <h5 className="font-bold text-white">3. Managing Cookies</h5>
+                  <p>
+                    If you prefer not to allow cookies, you can disable, limit, or clear them via your browser's privacy settings. Please note that disabling necessary cookies may affect the usability of certain parts of the website.
+                  </p>
+                </div>
+              </div>
+            )
+          )}
+
+          {/* Terms of Use Content */}
+          {activeTab === 'terms' && (
+            lang === 'tr' ? (
+              <div className="space-y-4">
+                <h4 className="font-extrabold text-white text-base">Kullanım Koşulları</h4>
+                <p>
+                  <strong>https://www.atom-tesisat.com</strong> web sitesine erişim sağlayarak ve bu siteyi kullanarak aşağıdaki kullanım koşullarını kabul etmiş sayılırsınız.
+                </p>
+                <div className="space-y-2">
+                  <h5 className="font-bold text-white">1. Hizmet Tanıtımı ve Bilgi Amaçlı Kullanım</h5>
+                  <p>
+                    Bu web sitesi, sıhhi tesisat tamiratı, su kaçağı bulma, robotla pimaş açma ve petek temizleme hizmetlerimizin tanıtımı ve online servis randevusu toplanması amacıyla kurulmuştur. Sitedeki genel tesisat tavsiyeleri sadece bilgilendirme amaçlı olup, yerinde inceleme yapılmadan uygulanan işlemlerin sonuçlarından Atom Tesisat sorumlu değildir.
+                  </p>
+                </div>
+                <div className="space-y-2">
+                  <h5 className="font-bold text-white">2. Randevu Talepleri ve Servis Koşulları</h5>
+                  <p>
+                    Sitemiz üzerinden oluşturduğunuz randevular bir ön talep niteliğindedir. Tesisat ustalarımız sizinle telefonla iletişime geçerek randevu saatini, yapılacak işlemi ve olası maliyetleri teyit ettikten sonra kesin servis kaydı oluşturulacaktır.
+                  </p>
+                </div>
+                <div className="space-y-2">
+                  <h5 className="font-bold text-white">3. Fikri Mülkiyet Hakları</h5>
+                  <p>
+                    Web sitesinde yer alan logo, görsel tasarımlar, metinler ve kodlar Atom Tesisat'a aittir ve yazılı izin olmaksızın kopyalanamaz, ticari amaçla kullanılamaz.
+                  </p>
+                </div>
+              </div>
+            ) : (
+              <div className="space-y-4">
+                <h4 className="font-extrabold text-white text-base">Terms of Use</h4>
+                <p>
+                  By accessing and using the website <strong>https://www.atom-tesisat.com</strong>, you agree to comply with these terms of use.
+                </p>
+                <div className="space-y-2">
+                  <h5 className="font-bold text-white">1. Service Presentation & Information Purpose</h5>
+                  <p>
+                    This website is created to promote our plumbing, leak detection, drain clearing, and radiator flushing services, and to gather online booking requests. General plumbing advice on the website is for informational purposes only. Atom Tesisat is not liable for actions taken without our on-site professional physical inspection.
+                  </p>
+                </div>
+                <div className="space-y-2">
+                  <h5 className="font-bold text-white">2. Appointment Bookings & Service Conditions</h5>
+                  <p>
+                    Bookings created on the website represent a pre-request. Our plumbing masters will contact you via phone to confirm your appointment time, required service, and estimated costs before final dispatch.
+                  </p>
+                </div>
+                <div className="space-y-2">
+                  <h5 className="font-bold text-white">3. Intellectual Property Rights</h5>
+                  <p>
+                    Logos, graphic designs, texts, and source codes used on this website belong to Atom Tesisat and cannot be copied or used for commercial purposes without written consent.
+                  </p>
+                </div>
+              </div>
+            )
+          )}
+
+        </div>
+
+        <div className="pt-4 mt-6 border-t border-slate-800 flex justify-end">
+          <button 
+            onClick={() => setShowCookiePolicyModal(false)}
+            className="px-6 py-3 bg-orange-600 hover:bg-orange-700 text-white text-xs sm:text-sm font-bold rounded-2xl shadow-lg transition-all cursor-pointer hover:-translate-y-0.5 active:scale-98"
+          >
+            {lang === 'tr' ? 'Okudum, Kapat' : 'Read, Close'}
+          </button>
+        </div>
+      </div>
+    </div>
   );
 }
