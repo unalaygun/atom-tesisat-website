@@ -49,7 +49,7 @@ export default function Footer({
 
               {/* Email */}
               <a 
-                href="mailto:atomtesisat28@gmail.com"
+                href="mailto:servis@atom-tesisat.com"
                 className="flex items-start space-x-4 p-4 bg-slate-800/50 rounded-2xl border border-slate-700/30 hover:border-orange-500/30 transition-colors group"
               >
                 <div className="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center group-hover:bg-orange-500 group-hover:text-white text-orange-400 transition-colors">
@@ -57,7 +57,7 @@ export default function Footer({
                 </div>
                 <div>
                   <span className="block text-sm text-slate-400 font-medium">{t('contactEmail')}</span>
-                  <span className="text-base font-bold text-white">atomtesisat28@gmail.com</span>
+                  <span className="text-base font-bold text-white">servis@atom-tesisat.com</span>
                 </div>
               </a>
 
@@ -284,7 +284,7 @@ function PolicyModal({ lang, setShowCookiePolicyModal }) {
                 <div className="space-y-2">
                   <h5 className="font-bold text-white">4. KVKK Madde 11 Kapsamındaki Haklarınız</h5>
                   <p>
-                    Kanun'un 11. maddesi uyarınca; kişisel verilerinizin işlenip işlenmediğini öğrenme, işlenmişse bilgi talep etme, işlenme amacına uygun kullanılıp kullanılmadığını öğrenme, eksik veya yanlış işlenmişse düzeltilmesini isteme ve verilerinizin silinmesini talep etme haklarına sahipsiniz. Haklarınızı kullanmak için <strong>atomtesisat28@gmail.com</strong> adresine e-posta yoluyla başvurabilirsiniz.
+                    Kanun'un 11. maddesi uyarınca; kişisel verilerinizin işlenip işlenmediğini öğrenme, işlenmişse bilgi talep etme, işlenme amacına uygun kullanılıp kullanılmadığını öğrenme, eksik veya yanlış işlenmişse düzeltilmesini isteme ve verilerinizin silinmesini talep etme haklarına sahipsiniz. Haklarınızı kullanmak için <strong>servis@atom-tesisat.com</strong> adresine e-posta yoluyla başvurabilirsiniz.
                   </p>
                 </div>
               </div>
@@ -322,7 +322,7 @@ function PolicyModal({ lang, setShowCookiePolicyModal }) {
                 <div className="space-y-2">
                   <h5 className="font-bold text-white">4. Your Rights Under Article 11 of KVKK</h5>
                   <p>
-                    You have the right to learn whether your data is processed, request information, check if it's used for intended purposes, request correction of incomplete data, or request deletion under Article 11. You can exercise these rights by emailing us at <strong>atomtesisat28@gmail.com</strong>.
+                    You have the right to learn whether your data is processed, request information, check if it's used for intended purposes, request correction of incomplete data, or request deletion under Article 11. You can exercise these rights by emailing us at <strong>servis@atom-tesisat.com</strong>.
                   </p>
                 </div>
               </div>
