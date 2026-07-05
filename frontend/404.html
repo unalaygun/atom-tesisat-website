@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 - Sayfa Bulunamadı | Atom Tesisat</title>
+    <meta name="robots" content="noindex, follow" />
+    
+    <!-- Google Fonts Preconnect & Stylesheet -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: 'Outfit', sans-serif;
+        background: radial-gradient(circle at center, #0f172a 0%, #020617 100%);
+        color: #f8fafc;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        text-align: center;
+      }
+      .container {
+        max-width: 500px;
+        width: 100%;
+        background: rgba(15, 23, 42, 0.6);
+        border: 1px solid rgba(249, 115, 22, 0.15);
+        border-radius: 24px;
+        padding: 48px 32px;
+        backdrop-filter: blur(16px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      }
+      .logo {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        margin-bottom: 32px;
+      }
+      .logo img {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        object-fit: cover;
+      }
+      .logo-text {
+        font-size: 22px;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+      }
+      .logo-text .brand {
+        color: #ffffff;
+      }
+      .logo-text .sub {
+        color: #f97316;
+      }
+      .error-code {
+        font-size: 80px;
+        font-weight: 900;
+        color: #f97316;
+        line-height: 1;
+        margin-bottom: 16px;
+        text-shadow: 0 0 30px rgba(249, 115, 22, 0.2);
+        animation: pulse 2s infinite ease-in-out;
+      }
+      .title {
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 12px;
+        color: #ffffff;
+      }
+      .description {
+        font-size: 15px;
+        color: #94a3b8;
+        line-height: 1.6;
+        margin-bottom: 32px;
+      }
+      .btn {
+        display: inline-block;
+        background: #ea580c;
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 15px;
+        padding: 14px 28px;
+        border-radius: 16px;
+        transition: all 0.2s ease-in-out;
+        box-shadow: 0 4px 12px rgba(234, 88, 12, 0.2);
+      }
+      .btn:hover {
+        background: #f97316;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(249, 115, 22, 0.35);
+      }
+      .contact-links {
+        margin-top: 32px;
+        padding-top: 24px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+      .contact-link {
+        color: #cbd5e1;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 500;
+        transition: color 0.2s;
+      }
+      .contact-link:hover {
+        color: #f97316;
+      }
+      @keyframes pulse {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.85; transform: scale(0.98); }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <a href="https://www.atomtesisat.com" class="logo">
+        <img src="/logo.webp" alt="Atom Tesisat Logo" />
+        <div class="logo-text">
+          <span class="brand">ATOM</span><span class="sub"> TESİSAT</span>
+        </div>
+      </a>
+      
+      <div class="error-code">404</div>
+      <h1 class="title">Sayfa Bulunamadı</h1>
+      <p class="description">
+        Aradığınız sayfa silinmiş, ismi değiştirilmiş veya geçici olarak kullanım dışı kalmış olabilir. Ana sayfaya dönerek hizmetlerimizi inceleyebilirsiniz.
+      </p>
+      
+      <a href="https://www.atomtesisat.com" class="btn">Ana Sayfaya Dön</a>
+      
+      <div class="contact-links">
+        <a href="tel:05459284543" class="contact-link">📞 Telefon Et (7/24)</a>
+        <a href="https://wa.me/905459284543" class="contact-link">💬 WhatsApp Destek</a>
+      </div>
+    </div>
+  </body>
+</html>

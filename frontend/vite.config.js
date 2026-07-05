@@ -24,6 +24,7 @@ export default defineConfig({
         tikaniklik: resolve(__dirname, 'tikaniklik-acma.html'),
         gider: resolve(__dirname, 'gider-acma.html'),
         petek: resolve(__dirname, 'petek-temizligi.html'),
+        notfound: resolve(__dirname, '404.html'),
       }
     }
   }

@@ -349,6 +349,84 @@ function App() {
   const pageContent = SERVICE_PAGES_CONTENT[activePage] ? SERVICE_PAGES_CONTENT[activePage][lang] : null;
   const activeFaqs = activePage === 'main' ? faqs : (pageContent ? pageContent.faqs : []);
 
+  // Sync page FAQ Schema (JSON-LD)
+  useEffect(() => {
+    const existingFaqSchema = document.getElementById('faq-jsonld');
+    if (existingFaqSchema) {
+      existingFaqSchema.remove();
+    }
+
+    if (activeFaqs && activeFaqs.length > 0) {
+      const schemaData = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": activeFaqs.map(faq => ({
+          "@type": "Question",
+          "name": faq.q,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.a
+          }
+        }))
+      };
+
+      const script = document.createElement('script');
+      script.id = 'faq-jsonld';
+      script.type = 'application/ld+json';
+      script.innerHTML = JSON.stringify(schemaData);
+      document.head.appendChild(script);
+    }
+
+    return () => {
+      const script = document.getElementById('faq-jsonld');
+      if (script) {
+        script.remove();
+      }
+    };
+  }, [lang, activePage, activeFaqs]);
+
+  // Sync page Breadcrumb Schema (JSON-LD)
+  useEffect(() => {
+    const existingBreadcrumbSchema = document.getElementById('breadcrumb-jsonld');
+    if (existingBreadcrumbSchema) {
+      existingBreadcrumbSchema.remove();
+    }
+
+    if (activePage !== 'main' && pageContent) {
+      const schemaData = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": lang === 'tr' ? 'Ana Sayfa' : 'Home',
+            "item": "https://www.atomtesisat.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": pageContent.title,
+            "item": `https://www.atomtesisat.com${getPagePath(activePage)}`
+          }
+        ]
+      };
+
+      const script = document.createElement('script');
+      script.id = 'breadcrumb-jsonld';
+      script.type = 'application/ld+json';
+      script.innerHTML = JSON.stringify(schemaData);
+      document.head.appendChild(script);
+    }
+
+    return () => {
+      const script = document.getElementById('breadcrumb-jsonld');
+      if (script) {
+        script.remove();
+      }
+    };
+  }, [lang, activePage, pageContent]);
+
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800 antialiased font-sans">
       
@@ -575,6 +653,13 @@ function App() {
               <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl"></div>
               
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-6">
+                {/* Breadcrumbs */}
+                <nav className="flex justify-center items-center text-xs font-semibold text-slate-400 space-x-2 pb-2 uppercase tracking-wider" aria-label="Breadcrumb">
+                  <a href={getNavHref('home')} className="hover:text-white transition-colors">{t('home')}</a>
+                  <span>/</span>
+                  <span className="text-orange-500">{pageContent.title}</span>
+                </nav>
+
                 <div className="inline-flex items-center space-x-2 bg-orange-500/10 text-orange-400 px-3 py-1 rounded-full text-sm font-semibold border border-orange-500/20 mx-auto">
                   <Sparkles className="w-4 h-4" />
                   <span>{t('emergencyBadge')}</span>
