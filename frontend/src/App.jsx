@@ -401,13 +401,13 @@ function App() {
             "@type": "ListItem",
             "position": 1,
             "name": lang === 'tr' ? 'Ana Sayfa' : 'Home',
-            "item": "https://www.atomtesisat.com/"
+            "item": "https://www.atom-tesisat.com/"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": pageContent.title,
-            "item": `https://www.atomtesisat.com${getPagePath(activePage)}`
+            "item": `https://www.atom-tesisat.com${getPagePath(activePage)}`
           }
         ]
       };

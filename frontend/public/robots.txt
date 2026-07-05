@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.atomtesisat.com/sitemap.xml
+Sitemap: https://www.atom-tesisat.com/sitemap.xml
